@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>MotoBikeShop | Продажа мотоциклов</title>
+    <!-- Font Awesome 6 (free icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Inter & Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Подключаем внешний CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="container header-flex">
+        <div class="logo">
+            <h1>Moto<span>Bike</span>Shop</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#catalog">Каталог</a></li>
+            <li><a href="#reviews-feedback">Отзывы</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+        </ul>
+        <div class="cart-icon" id="openCartBtn">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Корзина</span>
+            <span class="cart-count" id="cartCounter">0</span>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <!-- Каталог мотоциклов -->
+    <div id="catalog">
+        <h2 class="section-title">🏍️ Наши мотоциклы</h2>
+        <div class="catalog-grid" id="catalogGrid"></div>
+    </div>
+
+    <!-- Блок обратной связи и отзывы (объединены) -->
+    <div id="reviews-feedback">
+        <h2 class="section-title">💬 Отзывы и обратная связь</h2>
+        <div class="two-columns">
+            <!-- Форма обратной связи -->
+            <div class="feedback-form">
+                <h3><i class="fas fa-envelope"></i> Напишите нам</h3>
+                <form id="feedbackForm">
+                    <div class="form-group">
+                        <input type="text" id="feedbackName" placeholder="Ваше имя" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="feedbackEmail" placeholder="Email (для ответа)" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="3" id="feedbackMessage" placeholder="Ваше сообщение..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Отправить сообщение</button>
+                </form>
+                <p style="font-size: 0.8rem; margin-top: 12px;">Мы свяжемся с вами в ближайшее время!</p>
+            </div>
+
+            <!-- Список отзывов + добавление отзыва -->
+            <div class="reviews-list">
+                <h3><i class="fas fa-star"></i> Отзывы покупателей</h3>
+                <div id="reviewsContainer">
+                    <!-- динамические отзывы -->
+                </div>
+                <hr style="margin: 18px 0;">
+                <h4>Оставить отзыв</h4>
+                <form id="addReviewForm">
+                    <div class="form-group">
+                        <input type="text" id="reviewName" placeholder="Ваше имя" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="2" id="reviewText" placeholder="Поделитесь впечатлениями о мотоцикле..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-outline">⭐ Оставить отзыв</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="contacts" style="margin: 20px 0 30px;">
+        <h2 class="section-title">📞 Контакты</h2>
+        <div style="background: white; border-radius: 28px; padding: 24px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+            <p><i class="fas fa-map-marker-alt"></i> Москва, проспект Мира, 88</p>
+            <p><i class="fas fa-phone-alt"></i> +7 (495) 123-45-67</p>
+            <p><i class="fas fa-clock"></i> Ежедневно 10:00 – 20:00</p>
+            <p><i class="fas fa-headset"></i> Онлайн-чат и поддержка 24/7</p>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2025 MotoBikeShop — Адреналин на двух колёсах. Все цены указаны с НДС.</p>
+    </div>
+</footer>
+
+<!-- Modal корзины -->
+<div id="cartModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2><i class="fas fa-shopping-basket"></i> Ваша корзина</h2>
+            <button class="close-modal" id="closeModalBtn">&times;</button>
+        </div>
+        <div id="cartItemsList"></div>
+        <div class="cart-total" id="cartTotalPrice">Итого: 0 ₽</div>
+        <div style="display: flex; gap: 12px; margin-top: 24px;">
+            <button class="btn" id="clearCartBtn" style="background: #ccc; color:#1e2a41;">Очистить</button>
+            <button class="btn" id="checkoutBtn">Оформить заказ</button>
+        </div>
+    </div>
+</div>
+
+<!-- Подключаем внешний JavaScript -->
+<script src="script.js"></script>
+</body>
+</html>
